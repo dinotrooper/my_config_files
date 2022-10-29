@@ -1,34 +1,39 @@
-" pretty colors
-set background=dark
-set t_Co=256
-filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-set statusline+=%F
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
-" Auto turnon paste mode when pasting from clipboard
-" Including wrapper function to make it work within tmux
-function! WrapForTmux(s)
-  if !exists('$TMUX')
-    return a:s
-  endif
+set shell=/bin/bash
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-  let tmux_start = "\<Esc>Ptmux;"
-  let tmux_end = "\<Esc>\\"
+" Plugins
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-endfunction
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Python highlighting
+Plugin 'vim-python/python-syntax'
 
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-function! XTermPasteBegin()
-  set pastetoggle=<Esc>[201~
-  set paste
-  return ""
-endfunction
+" Plugin help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" General
+set nobackup                    " No auto backups
+set noswapfile                  " No swap
+set t_Co=256                    " Set if term supports 256 colors.
+set number relativenumber       " Display line numbers
+set expandtab                   " Use spaces instead of tabs.
+set smarttab                    " Be smart using tabs ;)
+set shiftwidth=4                " One tab == four spaces.
+set tabstop=4                   " One tab == four spaces.
+set mouse=nicr			" Mouse Scrolling
 
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+" Plugin stuff
+let g:python_highlight_all = 1  " enable python highlighting
