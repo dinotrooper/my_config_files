@@ -56,9 +56,21 @@ alias checkout='git checkout'
 alias clone='git clone'
 alias commit='git commit -m'
 alias amcommit='git commit -am'
+alias gstat='git status'
+alias gdiff='git diff'
 alias fetch='git fetch'
 alias pull='git pull origin'
 alias push='git push origin'
 alias tag='git tag'
 alias newtag='git tag -a'
 
+
+#alias for docker ps with formatting to remove command, ports, status columns
+alias dockerps='docker ps -a --format "table {{.Names}}\t{{.ID}}\t{{.Image}}\t{{.CreatedAt}}\t{{.Status}}"'
+alias ssh_legacy='ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -c 3des-cbc'
+alias sshwoh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+
+#aliases for windows desktop, documents, downloads
+alias cd_docs='cd /mnt/c/Users/dinot/Documents'
+alias cd_dt='cd /mnt/c/Users/dinot/Desktop'
+alias cd_dls='cd /mnt/c/Users/dinot/Downloads'

@@ -33,7 +33,8 @@ set expandtab                   " Use spaces instead of tabs.
 set smarttab                    " Be smart using tabs ;)
 set shiftwidth=4                " One tab == four spaces.
 set tabstop=4                   " One tab == four spaces.
-set mouse=nicr			" Mouse Scrolling
+set mouse=nicr                  " Mouse Scrolling
+set clipboard=unnamed           " Copy/paste between vim and other programs.
 
 " Plugin stuff
 let g:python_highlight_all = 1  " enable python highlighting
