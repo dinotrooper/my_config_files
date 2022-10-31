@@ -1,0 +1,7 @@
+#!/bin/bash
+# A function to launch tmux with a defined history limit
+function tmux_with_history_limit () {
+        tmux set-option -g history-limit $1 \; new-session
+}
+
+tmux_with_history_limit $1
