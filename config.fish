@@ -14,15 +14,16 @@ end
 ### END OF VI MODE ###
 
 function up --argument index
-    set out "../"
+    set base "../"
+    set out ""
     if test $index -le 0
         set index 1 
     end
-    if test ! $index -eq 0
+    if test $index -eq 0
         set index 1
     end
     for j in (seq 1 $index)
-        set out "../$out"
+        set out (string join '' $out $base)
     end
     
     if ! cd "$out"
