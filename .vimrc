@@ -11,6 +11,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Python highlighting
 Plugin 'vim-python/python-syntax'
+" plugin providing linting (syntax checking and semantic errors)
+Plugin 'dense-analysis/ale'
+"File management
+Plugin 'vifm/vifm.vim'                               " Vifm
+Plugin 'scrooloose/nerdtree'                         " Nerdtree
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
+Plugin 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,3 +45,12 @@ set clipboard=unnamed           " Copy/paste between vim and other programs.
 
 " Plugin stuff
 let g:python_highlight_all = 1  " enable python highlighting
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
