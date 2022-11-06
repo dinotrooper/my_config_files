@@ -107,3 +107,6 @@ alias fetch='git fetch'
 alias pull='git pull origin'
 alias push='git push origin'
 alias stat='git status'  # 'status' is protected name so using 'stat' instead
+
+#vim
+alias update_vim_plugins='vim +PluginInstall +qall'

@@ -15,8 +15,8 @@ Plugin 'vim-python/python-syntax'
 Plugin 'dense-analysis/ale'
 "File management
 Plugin 'vifm/vifm.vim'                               " Vifm
-Plugin 'scrooloose/nerdtree'                         " Nerdtree
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
+Plugin 'scrooloose/nerdtree'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Highlighting Nerdtree
 Plugin 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 
 " All of your Plugins must be added before the following line
@@ -32,6 +32,8 @@ filetype plugin indent on    " required
 " auto-approve removal
 "
 " General
+syntax enable
+set encoding=UTF-8
 set nobackup                    " No auto backups
 set noswapfile                  " No swap
 set t_Co=256                    " Set if term supports 256 colors.
@@ -41,7 +43,7 @@ set smarttab                    " Be smart using tabs ;)
 set shiftwidth=4                " One tab == four spaces.
 set tabstop=4                   " One tab == four spaces.
 set mouse=nicr                  " Mouse Scrolling
-set clipboard=unnamed           " Copy/paste between vim and other programs.
+set clipboard=unnamedplus           " Copy/paste between vim and other programs.
 
 " Plugin stuff
 let g:python_highlight_all = 1  " enable python highlighting
