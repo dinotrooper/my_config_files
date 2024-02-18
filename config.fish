@@ -59,6 +59,7 @@ alias commit='git commit -m'
 alias amcommit='git commit -am'
 alias gstat='git status'
 alias gdiff='git diff'
+alias glog='echo "Displaying latest 5 git commits." && git log --oneline | head -n 5'
 alias fetch='git fetch'
 alias pull='git pull origin'
 alias push='git push origin'
@@ -75,3 +76,18 @@ alias sshwoh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias cd_docs='cd /mnt/c/Users/dinot/Documents'
 alias cd_dt='cd /mnt/c/Users/dinot/Desktop'
 alias cd_dls='cd /mnt/c/Users/dinot/Downloads'
+
+
+#vim stuff
+alias update_vim="vim +PluginInstall +qall"
+
+#load spacefish stuff
+set SPACEFISH_TIME_SHOW true
+set SPACEFISH_DATE_SHOW true
+set SPACEFISH_HOST_SHOW false
+set SPACEFISH_TIME_PREFIX "@"
+# set SPACEFISH_DIR_PREFIX "- "
+# set SPACEFISH_GIT_PREFIX "- "
+# set SPACEFISH_PACKAGE_PREFIX "- "
+set SPACEFISH_EXIT_CODE_SHOW true
+set SPACEFISH_EXIT_CODE_SYMBOL  "✘ "
